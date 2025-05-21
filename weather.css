@@ -1,0 +1,93 @@
+
+  * {
+    box-sizing: border-box;
+  }
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    
+  }
+
+  #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+
+  .weather-app {
+    background: linear-gradient(rgb(123, 119, 119) ,rgb(0, 0, 0));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 320px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    margin-left: 10px;
+    border: none;
+    background-color: #0077ff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+ .in input{
+  font-weight: bold;
+  color: rgb(39, 37, 37);
+  font-family: Arial ;
+ }
+  button:hover {
+    background-color: #005fcc;
+  }
+
+  .result {
+    margin-top: 20px;
+  }
+
+  .error {
+    color: red;
+    margin-top: 20px;
+  }
+  #getWeatherBtn{
+    margin-top: 20px;
+    color: rgb(246, 246, 142);
+    font-weight: 600;
+    font-size: large;
+    border: solid 0.5px;
+    background: transparent;
+  }
+  #getWeatherBtn:hover{
+    margin-top: 28px;
+    color: rgb(251, 251, 61);
+    font-weight: 600;
+    font-size: large;
+    border: solid 0.5px;
+    background: transparent;
+    transition: all ease 0.5s;
+  }

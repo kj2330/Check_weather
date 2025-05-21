@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple Weather App</title>
+<link rel="stylesheet" href="weather.css">
+</head>
+<body>
+
+<video autoplay muted loop id="bg-video">
+  <source src="/vedo1.mp4">
+</video>
+
+<div class="weather-app">
+  <h2>Weather App</h2>
+  <div class="in">
+    <input type="text" id="location" placeholder="Enter city or location" />
+    <button id="getWeatherBtn">Get Weather</button>
+  </div>
+  <div class="result" id="result"></div>
+  <div class="error" id="error"></div>
+</div>
+
+<script>
+  const apiKey = 'ea777bce95fa41ab9d3162915252005';
+
+  const button = document.getElementById('getWeatherBtn');
+  const input = document.getElementById('location');
+  const resultDiv = document.getElementById('result');
+  const errorDiv = document.getElementById('error');
+
+  button.addEventListener('click', function () {
+        resultDiv.innerHTML = '';
+        errorDiv.textContent = '';
+
+        const location = input.value.trim();
+        if(location === ''){
+            errorDiv.textContent = 'Please enter the loaction';
+            return;
+        }
+
+    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(location)}&aqi=yes`;
+
+     fetch(url).then(function(res){
+        if(!res.ok){
+            throw new Error("Location not found in API");
+        }
+        return res.json();
+     })
+     .then(function(data){
+        const city = data.location.name;
+        const country = data.location.country;
+        const temp = data.current.temp_c;
+
+        resultDiv.innerHTML = `<h3>${city} , ${country}</h3> <br> ${temp}`;
+     })
+     .catch(function(err){
+        errorDiv.textContent = err.message;
+     })
+  });
+</script>
+
+</body>
+</html>
